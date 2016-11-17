@@ -14,7 +14,7 @@
 	</div>
 </div>
 
-<div class='outlineTrue' *ngIf="submitted && correctAnswer">
+<div class='outlineTrue' *ngIf='submitted && correctAnswer'>
 	<p>{{feedback}}</p>
 	<button (click)='nextQuestion()'>Next Question</button>
 </div>
@@ -25,7 +25,7 @@
 </div>
 
 <div *ngIf="questionShow === false">
-	<h4>Quiz is finished! Score: {{score}} out of {{totalPoints}} possible points.</h4>
+	<h4>Quiz is finished! Score: {{this.scorePercent}}%, or {{score}} out of {{totalPoints}} possible points.</h4>
 </div>
 
 <!-- only do ngfor if question.type === 'multiple choice' --> 

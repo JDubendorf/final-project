@@ -20,7 +20,6 @@ export class QuestionsComponent implements OnInit {
 	questionShow: boolean = true;	// *ngIf cancelled after last question
 	selected: Answer;				// active selection
 	selectedYes: boolean = true;	// an option has been selected, enabling submit
-	index: number = 0;				// index for text array
 	score: number = 0;
 	scorePercent: number = 0;	
 	totalPoints: number = 0;
@@ -31,7 +30,7 @@ export class QuestionsComponent implements OnInit {
 	incorrectAnswer: boolean = false;	// switch for color of response div
 	correctAnswer: boolean = false;		// switch for color of response div
 
-	// evaluation: Eval = [ {title: 'Lift Attendant Training Program', date:  }];
+	evaluation: Eval = { title: 'Lift Attendant Training Program', date: '11/17/16', result: 0 };
 
 	ngOnInit(): void { 
 		this.questionService.loadQuestions().subscribe(() => {
@@ -81,14 +80,17 @@ export class QuestionsComponent implements OnInit {
 		this.correctAnswer = false;
 		this.incorrectAnswer = false;
 		let questionArray = this.questionService.questions;
-		this.index = this.questionService.index;
 		
-		if (questionArray[this.index + 1] === undefined) {
-			this.questionService.submitEvaluation();
+		if (questionArray[this.questionService.index + 1] === undefined) {
+			this.evaluation = { title: 'Lift Attendant Training Program', date: '11/17/16', result: this.scorePercent };
+			this.questionService.submitEvaluation(this.evaluation);
+			console.log("ALL OUT OF QUESTIONS");
 			return this.questionShow = false;
+			
 		}
 		
 		this.questionService.index++;
+		console.log("SHOULD NOT SHOW ON LAST");
 		this.question = this.questionService.getCurrentQuestion();
 	}
 

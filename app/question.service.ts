@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';  
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable'; 
 
 import { Question } from './question';
 import { Answer } from './question';
@@ -18,6 +18,7 @@ export class QuestionService {
 	}
 
 	loadQuestions(): Observable<any> {
+		this.index = 0;
 		return new Observable((observer) => {
 			if (this.questions.length) {
 				observer.next(true);
@@ -39,8 +40,8 @@ export class QuestionService {
 		return this.questions[this.index];
 	}
 
-	submitEvaluation(): void {
-		this.apiService.post('/api/eval', JSON.stringify(this.questions), 
+	submitEvaluation(testRes: Eval): void {
+		this.apiService.post('/api/eval', JSON.stringify(testRes), 
 			this.authService.getJWT()).subscribe((data) => {
 
 		});

@@ -43,6 +43,7 @@ h2, h3, h4, label, input, p {
   color: #444;
   font-family: Helvetica, sans-serif;
   font-weight: lighter;
+  font-size: 115%;
 }
 body {
   margin: 2em;
@@ -58,6 +59,7 @@ button, a {
   border-radius: 4px;
   cursor: pointer;
   cursor: hand;
+  font-size: 110%;
 }
 button:hover, a:hover {
   background-color: #cfd8dc;
@@ -97,7 +99,7 @@ button:disabled, a:disabled {
 
 label {
     display:inline-block;
-    width:100px;
+    width:120px;
 }
 
 

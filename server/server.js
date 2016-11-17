@@ -94,6 +94,10 @@ var Question = mongoose.model('Question', QuestionSchema);
 var UserConstructor = require('./User.schema.js');
 var User = mongoose.model('User', UserSchema);
 
+// var testMongoUser = require('./testMongoUser');
+// testMongoUser(mongoose, UserConstructor); 
+
+
 //do this for every request
 app.use(function(req, res, next) {
 	console.log(req.url);
@@ -113,11 +117,16 @@ app.get('/api/test', function(req, res) {
 
 app.post('/api/eval', passport.authenticate("user-jwt", {session: false}), function(req, res) {
 
-	console.log(req.user);
 	console.log(req.body);
 
-// now have access to req.user
-// req.body is all the questions
+	User.findOneAndUpdate({_id: req.user.id}, {$push: {evaluations: req.body}},
+
+
+		function (err, data) {
+			console.log(data);
+			res.send('"success"');
+
+	});
 
 });
 

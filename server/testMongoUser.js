@@ -2,14 +2,14 @@ module.exports = function (mongoose, User) {
 
 	var myUser = new User ({
 
-		firstName: 'Linda',
-		lastName: 'Jones',
-		username: 'ljones',
+		firstName: 'James',
+		lastName: 'Dubendorf',
+		username: 'jdubendorf',
 		password: 'password1',
-		email: 'ljones@none.com',
+		email: 'jdubendorf@none.com',
 		mountain: 'Default Mountain',
-		role: 'learner',
-		evaluations: [ {title: 'LATP', date: '11/02/16', result: 95} ]
+		role: 'administrator',
+		evaluations: []
 
 	});
 
