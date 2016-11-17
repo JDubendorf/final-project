@@ -1,0 +1,46 @@
+ 
+<div>
+	<div>
+		<div *ngIf='docReady && questionShow'>
+			<p>Current Score: {{scorePercent}}%</p>
+			<div class='outline'>
+				<h4>{{question.query}}</h4>
+				
+				<button (click)='selectAnswer(answer)' *ngFor='let answer of question.answers' [disabled]='submitted'>{{answer.option}}</button>
+				<br>
+				<button type='submit' (click)='submitAnswer()' [disabled]='submitted || selectedYes'>Submit Answer</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class='outlineTrue' *ngIf="submitted && correctAnswer">
+	<p>{{feedback}}</p>
+	<button (click)='nextQuestion()'>Next Question</button>
+</div>
+
+<div class='outlineFalse' *ngIf="submitted && incorrectAnswer">
+	<p>{{feedback}}</p>
+	<button (click)='nextQuestion()'>Next Question</button>
+</div>
+
+<div *ngIf="questionShow === false">
+	<h4>Quiz is finished! Score: {{score}} out of {{totalPoints}} possible points.</h4>
+</div>
+
+<!-- only do ngfor if question.type === 'multiple choice' --> 
+
+<!--
+<div>
+	<div>
+		<div *ngIf='question != false'>
+			<h4>{{question.query}}</h4>
+			
+			<li (click)='test(answer)' *ngFor="let answer of question.answers">{{answer.option}}</li>
+			<br>
+			<button (click)='nextQuestion()'>Submit Answer</button>
+
+		</div>
+	</div>
+</div>
+-->

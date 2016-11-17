@@ -1,0 +1,45 @@
+<h2>Welcome to the Lift Attendant Training Program.</h2> 
+<h4>Users with an account: </h4>
+<form>
+    <div>
+        <label for='username'>Username</label>
+        <input type='text' [(ngModel)]='userLogin.username' 
+            name='username' placeholder='username'>
+    </div>
+    <div>
+        <label for='password'>Password</label>
+        <input type='password' [(ngModel)]='userLogin.password' 
+            name='password' placeholder='password'>
+    </div>
+    <div>
+        <button (click)='submitLogin()'>Login</button>
+        <p *ngIf='error'>{{ error }}</p>
+    </div>
+</form>
+<h4>New users: </h4>
+<form>
+    <div>
+
+        <label for='firstName'>First Name </label>
+        <input type='text' [(ngModel)]='user.firstName' name='firstName' placeholder='first name'>
+    </div>
+    <div>
+        <label for='lastName'>Last Name </label>
+        <input type='text' [(ngModel)]='user.lastName' name='lastName' placeholder='last name'>
+    </div>
+    <div>
+        <label  for='username'>Username </label>
+        <input type='text' [(ngModel)]='user.username' name='username' placeholder='username'>
+    </div>
+    <div>
+        <label  for='password'>Password </label>
+        <input type='text' [(ngModel)]='user.password' name='password' placeholder='password'>
+    </div>
+    <div>
+        <label for='password'>Email </label>
+        <input type='text' [(ngModel)]='user.email' name='email' placeholder='email'>
+    </div>
+        <button (click)='addUser()'>Submit</button>
+        <p *ngIf='error'>{{ error }}</p>
+</form>
+
