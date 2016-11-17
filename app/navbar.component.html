@@ -1,6 +1,5 @@
-  <ul *ngIf='authService.user'>
-	  <button><a (click)='authService.logout()'>Logout</a></button>
-	  <button>
-	  <a routerLink="/questions" routerLinkActive="active">Proceed to Quiz</a>
-	  </button>
-  </ul>
+<div class='navbar' *ngIf='authService.user'> 
+	  <div class='navlinks'><a (click)='authService.logout()'>Logout</a></div>
+</div>
+
+
