@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Question } from './question';
 import { Answer } from './question';
+import { Eval } from './user';
 import { QuestionService } from './question.service';
 
 @Component({
@@ -29,6 +30,8 @@ export class QuestionsComponent implements OnInit {
 	docReady: boolean = false;			// *ngIf waits for server data
 	incorrectAnswer: boolean = false;	// switch for color of response div
 	correctAnswer: boolean = false;		// switch for color of response div
+
+	// evaluation: Eval = [ {title: 'Lift Attendant Training Program', date:  }];
 
 	ngOnInit(): void { 
 		this.questionService.loadQuestions().subscribe(() => {

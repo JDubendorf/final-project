@@ -5,6 +5,7 @@ import { Question } from './question';
 import { Answer } from './question';
 import { ApiService } from './api.service';
 import { AuthService } from './auth.service';
+import { Eval } from './user';
 
 @Injectable()
 export class QuestionService {

@@ -14,6 +14,16 @@ var app = express();
 var cors = require('cors');
 app.use(cors());
 
+// if we want to handle session (login, etc)
+// $ npm install --save express-session
+
+var session = require('express-session');
+app.use(session({
+	secret: 'Secret Key',
+	resave: false,
+	saveUninitialized: false
+}));
+
 
 // set up connection to Mongo
 var mongoose = require('mongoose');
@@ -75,18 +85,9 @@ passport.use('user-local', new LocalStrategy(
 	}
 ));
 
-// if we want to handle session (login, etc)
-// $ npm install --save express-session
-
-var session = require('express-session');
-app.use(session({
-	secret: 'Secret Key',
-	resave: false,
-	saveUninitialized: false
-}));
 
 // set up Question
-var QuestionConstructor = require('./Question.schema.js');
+var QuestionConstructor = require('./Question.schema.js'); 
 var Question = mongoose.model('Question', QuestionSchema);
 
 // set up User

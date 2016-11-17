@@ -1,5 +1,5 @@
 export class Question {
-
+ 
 	questionType: string;
 	index: number;
 	points: number;
